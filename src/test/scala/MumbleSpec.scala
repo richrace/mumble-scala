@@ -21,5 +21,9 @@ class MumbleSpec extends AnyFunSpec {
     it("should handle four letters") {
       mumble.speak("abcd") should equal("A-Bb-Ccc-Dddd")
     }
+
+    it("will handle letters in non-alphabetical order") {
+      mumble.speak("xiswfb") should equal("X-Ii-Sss-Wwww-Fffff-Bbbbbb")
+    }
   }
 }
