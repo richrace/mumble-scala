@@ -1,10 +1,7 @@
-
 class Mumble {
   def speak(word: String): String = {
     word.zipWithIndex
-      .foldLeft(List[String]()) { (accu, foldTuple) =>
-        var index = foldTuple._2
-        var letter = foldTuple._1
+      .foldLeft(List[String]()) { case (accu, (letter, index)) =>
         accu :+ (letter.toLower.toString * (index + 1)).capitalize
       }
       .mkString("-")
