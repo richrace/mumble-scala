@@ -1,10 +1,15 @@
 import org.scalatest._
 import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.BeforeAndAfter
 import matchers.should.Matchers._
 
-class MumbleSpec extends AnyFunSpec {
+class MumbleSpec extends AnyFunSpec with BeforeAndAfter {
   describe("Mumble") {
-    val mumble = new Mumble()
+    var mumble: Mumble = null
+
+    before {
+      mumble = new Mumble()
+    }
 
     it("should handle one letter") {
       mumble.speak("a") should equal("A")
